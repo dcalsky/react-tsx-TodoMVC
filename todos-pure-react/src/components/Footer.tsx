@@ -7,6 +7,7 @@ interface FooterProps {
 	clearCompletedTodos(): void
 }
 
+
 export default class Footer extends React.Component<FooterProps, {}> {
 	state = {
 		status: null

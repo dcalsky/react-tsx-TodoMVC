@@ -1,22 +1,46 @@
+
+/// <reference path="./interfaces.d.ts"/>
+
 import * as React from 'react';
-import './App.css';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { addTodo, clearCompletedTodos, clearTodo, updateTodo, finishTodo } from './actions/TodoAction';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
-const logo = require('./logo.svg');
+interface AppProps {
+  todos: ITodo[],
+  // addTodo(val: string): string,
+  // clearCompletedTodos(): void,
+  // clearTodo(id: number): number,
+  // updateTodo(id: number, val: string): object,
+  // finishTodo(id: number): number,
+  dispatch: Dispatch<ITodo>
+}
 
-class App extends React.Component<{}, {}> {
+class App extends React.Component<AppProps, {}> {
   render() {
+    const { todos, dispatch } = this.props
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <section className="todoapp">
+        <Header addTodo={(val: string) => {dispatch(addTodo(val))}}/>
+
+        <Footer clearCompletedTodos={() => {dispatch(clearCompletedTodos())}} />
+      </section>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({
+  todos: state.todos
+})
+
+// const mapDispatchToProps = (dispatch: any) => bindActionCreators({
+//   addTodo,
+//   updateTodo,
+//   clearCompletedTodos,
+//   clearTodo,
+//   finishTodo
+// }, dispatch)
+
+export default connect(mapStateToProps)(App)

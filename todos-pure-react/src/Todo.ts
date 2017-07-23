@@ -6,7 +6,6 @@ export enum TodoStatus {
 export interface Todo {
   val: string,
   status: TodoStatus,
-  selected: boolean,
   visible: boolean,
   editing: boolean
 }

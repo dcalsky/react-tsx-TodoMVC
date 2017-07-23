@@ -1,15 +1,21 @@
 {
-  "name": "todos-pure-react",
+  "name": "practise",
   "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "@types/jest": "^20.0.4",
-    "@types/node": "^8.0.14",
+    "@types/node": "^8.0.15",
     "@types/react": "^15.0.38",
     "@types/react-dom": "^15.5.1",
     "classnames": "^2.2.5",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "todomvc-app-css": "^2.1.0"
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "todomvc-app-css": "^2.1.0",
+    "@types/react-redux": "^4.4.46",
+    "@types/redux-actions": "^1.2.6"
   },
   "devDependencies": {
     "app-root-path": "^2.0.1",
