@@ -1,10 +1,12 @@
 export enum TodoStatus {
-  doing,
-  completed
+  completed,
+  actived
 }
 
 export interface Todo {
   val: string,
   status: TodoStatus,
-  selected: boolean
+  selected: boolean,
+  visible: boolean,
+  editing: boolean
 }

@@ -11,15 +11,13 @@ export default class Header extends React.Component<HeaderProps, {}> {
   }
   constructor(props: any) {
     super(props)
-    this.handleChange = this.handleChange.bind(this)
-    this.handlePress = this.handlePress.bind(this)
   }
-  handleChange(e: any): void {
+  handleChange = (e: any): void => {
     this.setState({
       todoValue: e.target.value
     })
   }
-  handlePress(e: any): void {
+  handlePress = (e: any): void => {
     if (e.key === 'Enter' && this.state.todoValue) {
       this.setState({
         todoValue: ''
@@ -27,11 +25,13 @@ export default class Header extends React.Component<HeaderProps, {}> {
       this.addTodo(this.state.todoValue)
     }
   }
-  addTodo(val: string): void {
+  addTodo = (val: string): void => {
     this.props.addTodo({
-      val: val,
-      status: TodoStatus.doing,
-      selected: false
+      val,
+      status: TodoStatus.actived,
+      selected: false,
+      visible: true,
+      editing: false
     })
   }
   render() {
